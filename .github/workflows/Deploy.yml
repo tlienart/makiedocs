@@ -18,6 +18,7 @@ jobs:
         version: 1.6
     - run: julia -e '
             using Pkg; Pkg.activate("."); Pkg.instantiate();
+            Pkg.add(Pkg.PackageSpec(name="Franklin", rev="master"));
             using Franklin; optimize(prerender=false, minify=false)'
     - name: Build and Deploy
       uses: JamesIves/github-pages-deploy-action@releases/v3
